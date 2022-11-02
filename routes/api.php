@@ -23,11 +23,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['middleware' => 'auth:sanctum'], function () {
     //All secure URLs
     Route::post("add", [ProductController::class, "add"]);
+    Route::put("update", [ProductController::class, "update"]);
+    Route::delete("delete/{id}", [ProductController::class, "delete"]);
 });
 
 Route::get("ShowAllProducts", [ProductController::class, "ShowAllProducts"]);
 Route::get("list/{id}", [ProductController::class, "list"]);
-Route::put("update", [ProductController::class, "update"]);
-Route::delete("delete/{id}", [ProductController::class, "delete"]);
 
 Route::post("login", [AdminController::class, "login"]);
