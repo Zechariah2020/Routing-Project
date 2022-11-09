@@ -11,7 +11,7 @@ class ClassroomController extends Controller
     {
         $result = Student::find($id);
         if ($result) {
-            echo $result->first_name . " " . $result->last_name . " have the classes below:\n";
+            echo $result->first_name . " " . $result->last_name . " has the classes below:\n";
             return $result->classrooms;
         } else {
             return "There's no such student in the database";
