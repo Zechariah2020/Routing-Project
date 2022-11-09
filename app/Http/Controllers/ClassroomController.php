@@ -14,7 +14,7 @@ class ClassroomController extends Controller
             echo $result->first_name . " " . $result->last_name . " has the classes below:\n";
             return $result->classrooms;
         } else {
-            return "There's no such student in the database";
+            return "There's no such student in the database.";
         }
     }
 }
