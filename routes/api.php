@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClassroomController;
+use App\Http\Controllers\StudentApiController;
 use App\Http\Controllers\StudentController;
 
 /*
@@ -33,5 +34,8 @@ Route::get("ShowAllProducts", [ProductController::class, "ShowAllProducts"]);
 Route::get("list/{id}", [ProductController::class, "list"]);
 Route::get("ShowClasses/{id}", [ClassroomController::class, "show"]);
 Route::get("ShowStudents/{id}", [StudentController::class, "show"]);
+
+Route::get("students", [StudentApiController::class, "index"]);
+Route::get("students/{id}", [StudentApiController::class, "show"]);
 
 Route::post("login", [AdminController::class, "login"]);
