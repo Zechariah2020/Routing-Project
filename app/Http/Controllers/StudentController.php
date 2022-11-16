@@ -11,10 +11,13 @@ class StudentController extends Controller
     {
         $result = Classroom::find($id);
         if ($result) {
-            echo $result->name . " class is taken by the students below:\n";
-            return $result->students;
+            return response()->json(
+                $result->students
+            );
         } else {
-            return "There's no such classroom in the database.";
+            return response()->json([
+                "message" => "There's no such classroom in the database."
+            ], 404);
         }
     }
 }

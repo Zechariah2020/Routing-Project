@@ -11,10 +11,13 @@ class ClassroomController extends Controller
     {
         $result = Student::find($id);
         if ($result) {
-            echo $result->first_name . " " . $result->last_name . " has the classes below:\n";
-            return $result->classrooms;
+            return response()->json(
+                $result->classrooms
+            );
         } else {
-            return "There's no such student in the database.";
+            return response()->json([
+                "message" => "There's no such student in the database."
+            ], 404);
         }
     }
 }
