@@ -15,10 +15,11 @@ class StudentApiController extends Controller
     }
     function show($id)
     {
-        $result = Classroom::find($id);
+        $result = Classroom::with("students")->find($id);
         if ($result) {
-            $students = Student::all();
-            return StudentResource::collection($students);
+            return response()->json(
+                StudentResource::collection($result->students)
+            );
         } else {
             return response()->json([
                 "message" => "There's no such classroom in the database."
