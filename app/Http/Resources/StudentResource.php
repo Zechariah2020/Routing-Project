@@ -15,10 +15,11 @@ class StudentResource extends JsonResource
     public function toArray($request)
     {
         // return parent::toArray($request);
-        [
-            'Student ID' => $this->id,
-            'First Name' => $this->first_name,
-            'Last Name' => $this->last_name
-        ];
+        return
+            [
+                'Student ID' => $this->id,
+                'First Name' => $this->first_name,
+                'Last Name' => $this->last_name
+            ];
     }
 }
