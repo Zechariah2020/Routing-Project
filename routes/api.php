@@ -33,6 +33,8 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 Route::get("ShowAllProducts", [ProductController::class, "ShowAllProducts"]);
 Route::get("list/{id}", [ProductController::class, "list"]);
 Route::get("ShowClasses/{id}", [ClassroomController::class, "show"]);
+Route::get("ShowClassesViaClassroomModel/{id}", [ClassroomController::class, "showViaClassroomModel"]);
+Route::get("ClassesOutsideTheController/{id}", [ClassroomController::class, "getById"]);
 Route::get("ShowStudents/{id}", [StudentController::class, "show"]);
 
 Route::get("students", [StudentApiController::class, "index"]);
